@@ -33,6 +33,7 @@ class UserResponse(BaseModel):
 
 # --------- Message Schemas ---------
 class MessageCreate(BaseModel):
+    receiver_id: int
     content: str
     # timestamp is usually set by backend, so optional
     timestamp: Optional[datetime] = None
@@ -41,6 +42,8 @@ class MessageCreate(BaseModel):
 
 class MessageResponse(BaseModel):
     id: int
+    sender_id: int
+    receiver_id: int
     content: str
     timestamp: datetime
     is_read: bool

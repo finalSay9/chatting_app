@@ -15,9 +15,9 @@ def send_message(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_user)
 ):
-    db_message = models.Messages(
+    db_message = models.Message(
         sender_id=current_user.id,
-        receiver_id=get_messages.receiver_id,
+        receiver_id=message.receiver_id,
         content=message.content
     )
     db.add(db_message)
